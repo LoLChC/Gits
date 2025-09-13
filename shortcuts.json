@@ -4,7 +4,16 @@
             "name": "echo",
             "args": ["text"],
             "run": ["echo ${text}"]
+        },
+        {
+            "name": "touchfile",
+            "args": ["filename"],
+            "run": ["touch ${filename}", "echo 'Dosya oluşturuldu: ${filename}'"]
+        },
+        {
+            "name": "search",
+            "args": ["query"],
+            "run": ["grep '${query}' *.txt"]
         }
     ]
-
 }
