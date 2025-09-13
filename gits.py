@@ -3,7 +3,6 @@ import subprocess
 import json
 import os
 
-# shortcuts.json dosyasını script ile aynı klasörden oku
 base_dir = os.path.dirname(__file__)
 with open(os.path.join(base_dir, "shortcuts.json"), "r") as f:
     data = json.load(f)
@@ -44,18 +43,15 @@ def main():
     parser = argparse.ArgumentParser(prog="gits", description="Benim özel CLI'm")
     subparsers = parser.add_subparsers(title="Komutlar")
 
-    # commit alt komutu
     commit_parser = subparsers.add_parser("commit")
     commit_parser.add_argument("-m", "--message")
     commit_parser.add_argument("branch", nargs="?", default="")
     commit_parser.set_defaults(func=commit)
 
-    # repo alt komutu
     repo_parser = subparsers.add_parser("repo")
     repo_parser.add_argument("url")
     repo_parser.set_defaults(func=repo)
 
-    # Dinamik shortcut alt komutları
     for shortcut in data["shortcuts"]:
         sc_parser = subparsers.add_parser(shortcut["name"])
         sc_parser.add_argument("--text", help="Shortcut içindeki ${text} yerine geçecek değer", default="")
@@ -69,3 +65,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#
