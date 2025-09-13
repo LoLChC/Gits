@@ -1,0 +1,10 @@
+{
+    "shortcuts": [
+        {
+            "name": "echo",
+            "args": ["text"],
+            "run": ["echo ${text}"]
+        }
+    ]
+
+}
