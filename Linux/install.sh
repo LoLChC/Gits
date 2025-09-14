@@ -1,14 +1,27 @@
 #!/bin/bash
-# Tek satırlık kurulum için script
 
-# 1. Dosyayı indir
-curl -L -o gits https://github.com/LoLChC/Gits/raw/main/Linux/dist/gits
+# Kurulum dizini
+INSTALL_PATH="/usr/local/bin"
+APP_NAME="gits"
+PY_FILE="${APP_NAME}.py"
+URL="https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/gits.py"
 
-# 2. Çalıştırılabilir yap
-chmod +x gits
+# Python3 kontrol
+if ! command -v python3 &> /dev/null
+then
+    echo "Python3 bulunamadı! Lütfen yükleyin."
+    exit 1
+fi
 
-# 3. Sistemde global olarak kullanılabilir hale getir
-sudo mv gits /usr/local/bin/gits
+# Dosya indirme
+echo "Gits indiriliyor..."
+curl -fsSL "$URL" -o "/tmp/$PY_FILE" || { echo "İndirme başarısız!"; exit 1; }
 
-# 4. Kurulum tamamlandı mesajı
-echo "Gits başarıyla kuruldu! Artık terminalden 'gits' komutu ile çalıştırabilirsiniz."
+# Shebang ekle
+sed -i '1i #!/usr/bin/env python3' "/tmp/$PY_FILE"
+
+# Taşı ve çalıştırılabilir yap
+sudo mv "/tmp/$PY_FILE" "$INSTALL_PATH/$APP_NAME"
+sudo chmod +x "$INSTALL_PATH/$APP_NAME"
+
+echo "Kurulum tamamlandı! Artık terminalden '$APP_NAME' komutu ile çalıştırabilirsiniz."
