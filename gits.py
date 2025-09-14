@@ -2,7 +2,6 @@ import argparse
 import subprocess
 import json
 import os
-import sys
 
 BASE_DIR = os.path.dirname(__file__)
 JSON_PATH = os.path.join(BASE_DIR, "shortcuts.json")
@@ -122,26 +121,26 @@ def delete(args):
 def build_parser_with_dynamic_subcommands():
     data = load_data()
 
-    parser = argparse.ArgumentParser(prog="gits", description="Benim özel CLI'm")
-    subparsers = parser.add_subparsers(title="Komutlar")
+    parser = argparse.ArgumentParser(prog="gits")
+    subparsers = parser.add_subparsers()
 
     commit_parser = subparsers.add_parser("commit", help="Git commit + push")
-    commit_parser.add_argument("-m", "--message", help="Commit mesajı")
-    commit_parser.add_argument("branch", nargs="?", default="", help="Push yapılacak branch (opsiyonel)")
+    commit_parser.add_argument("-m", "--message", help="Commit mesajı / Commit message")
+    commit_parser.add_argument("branch", nargs="?", default="", help="Push yapılacak branch (opsiyonel) / Optional branch to push")
     commit_parser.set_defaults(func=commit, _type="static")
 
-    repo_parser = subparsers.add_parser("repo", help="Yeni repo hazırla ve push et")
+    repo_parser = subparsers.add_parser("repo", help="Yeni repo hazırla ve push et / Create new repo and push")
     repo_parser.add_argument("url", help="Remote origin URL")
     repo_parser.set_defaults(func=repo, _type="static")
 
-    create_parser = subparsers.add_parser("create", help="Yeni shortcut oluştur")
-    create_parser.add_argument("name", help="Shortcut ismi")
-    create_parser.add_argument("variables", help="JSON formatında değişken listesi. Örn: '[\"deg1\",\"deg2\"]'")
-    create_parser.add_argument("commands", nargs="+", help="Çalıştırılacak komut(lar).")
+    create_parser = subparsers.add_parser("create", help="Yeni shortcut oluştur / Create new shortcut")
+    create_parser.add_argument("name", help="Shortcut ismi / Shortcut name")
+    create_parser.add_argument("variables", help="JSON formatında değişken listesi / JSON list of variables")
+    create_parser.add_argument("commands", nargs="+", help="Çalıştırılacak komutlar / Commands to run")
     create_parser.set_defaults(func=create, _type="static")
 
-    delete_parser = subparsers.add_parser("delete", help="Shortcut sil")
-    delete_parser.add_argument("name", help="Silinecek shortcut ismi")
+    delete_parser = subparsers.add_parser("delete", help="Shortcut sil / Delete shortcut")
+    delete_parser.add_argument("name", help="Silinecek shortcut ismi / Shortcut name to delete")
     delete_parser.set_defaults(func=delete, _type="static")
 
     for shortcut in data.get("shortcuts", []):
