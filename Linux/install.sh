@@ -1,27 +1,26 @@
 #!/bin/bash
+# Gits kurulumu için otomatik script
 
-# Kurulum dizini
-INSTALL_PATH="/usr/local/bin"
-APP_NAME="gits"
-PY_FILE="${APP_NAME}.py"
-URL="https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/gits.py"
+set -e
 
-# Python3 kontrol
-if ! command -v python3 &> /dev/null
-then
-    echo "Python3 bulunamadı! Lütfen yükleyin."
-    exit 1
-fi
+# 1. Dosyaları indir ve geçici klasöre koy
+TMP_DIR=$(mktemp -d)
+echo "Geçici klasör: $TMP_DIR"
 
-# Dosya indirme
-echo "Gits indiriliyor..."
-curl -fsSL "$URL" -o "/tmp/$PY_FILE" || { echo "İndirme başarısız!"; exit 1; }
+curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/gits.py -o "$TMP_DIR/gits.py"
 
-# Shebang ekle
-sed -i '1i #!/usr/bin/env python3' "/tmp/$PY_FILE"
+# 2. Dosya formatını Linux uyumlu yap
+sudo apt-get install -y dos2unix
+dos2unix "$TMP_DIR/gits.py"
 
-# Taşı ve çalıştırılabilir yap
-sudo mv "/tmp/$PY_FILE" "$INSTALL_PATH/$APP_NAME"
-sudo chmod +x "$INSTALL_PATH/$APP_NAME"
+# 3. /usr/local/bin dizinine kopyala
+sudo cp "$TMP_DIR/gits.py" /usr/local/bin/gits
+sudo chmod +x /usr/local/bin/gits
 
-echo "Kurulum tamamlandı! Artık terminalden '$APP_NAME' komutu ile çalıştırabilirsiniz."
+# 4. Gerekli Python paketlerini yükle
+python3 -m pip install --user requests pyinstaller
+
+# 5. Temizle
+rm -rf "$TMP_DIR"
+
+echo "Gits başarıyla kuruldu! Artık terminalden 'gits' komutu ile çalıştırabilirsiniz."
