@@ -2,20 +2,50 @@ import argparse
 import subprocess
 import json
 import os
+import sys
 
-base_dir = os.path.dirname(__file__)
-with open(os.path.join(base_dir, "shortcuts.json"), "r") as f:
-    data = json.load(f)
+BASE_DIR = os.path.dirname(__file__)
+JSON_PATH = os.path.join(BASE_DIR, "shortcuts.json")
 
-def run_dynamic_shortcut(args):
+def ensure_json_file():
+    if not os.path.exists(JSON_PATH):
+        with open(JSON_PATH, "w", encoding="utf-8") as f:
+            json.dump({"shortcuts": []}, f, ensure_ascii=False, indent=4)
+
+def load_data():
+    ensure_json_file()
+    with open(JSON_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def save_data(data):
+    with open(JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+def run_dynamic_shortcut(args, data):
+    target = None
     for shortcut in data["shortcuts"]:
         if shortcut["name"].lower() == args.func_name.lower():
-            for cmd in shortcut["run"]:
-                cmd = cmd.replace("${text}", getattr(args, "text", ""))
-                subprocess.run(cmd, shell=True)
+            target = shortcut
             break
-    else:
+
+    if not target:
         print(f"Shortcut '{args.func_name}' bulunamadı.")
+        return
+
+    values = {}
+    for var in target.get("args", []):
+        values[var] = getattr(args, var, "")
+
+    missing = [v for v in target.get("args", []) if not values.get(v)]
+    if missing:
+        print(f"Eksik argüman(lar): {', '.join(missing)}")
+        return
+
+    for cmd in target.get("run", []):
+        filled = cmd
+        for var_name, var_value in values.items():
+            filled = filled.replace(f"${{{var_name}}}", str(var_value))
+        subprocess.run(filled, shell=True)
 
 def commit(args):
     subprocess.run(["git", "add", "."])
@@ -39,27 +69,98 @@ def repo(args):
     subprocess.run(["git", "remote", "add", "origin", args.url])
     subprocess.run(["git", "push", "-u", "origin", "main"])
 
-def main():
+def create(args):
+    data = load_data()
+    name = args.name
+
+    try:
+        variables = json.loads(args.variables)
+        if not isinstance(variables, list) or not all(isinstance(x, str) for x in variables):
+            print("Değişkenler bir string listesi olmalı. Örn: '[\"deg1\",\"deg2\"]'")
+            return
+    except json.JSONDecodeError:
+        print("Değişken listesi JSON formatında olmalı. Örn: '[\"deg1\",\"deg2\"]'")
+        return
+
+    commands = args.commands
+    for i in range(len(commands)):
+        for var in variables:
+            commands[i] = commands[i].replace(f"${var}", f"${{{var}}}")
+
+    for sc in data["shortcuts"]:
+        if sc["name"].lower() == name.lower():
+            print(f"'{name}' adlı bir shortcut zaten var.")
+            return
+
+    new_shortcut = {
+        "name": name,
+        "args": variables,
+        "run": commands
+    }
+    data["shortcuts"].append(new_shortcut)
+    save_data(data)
+
+    print(f"Shortcut '{name}' eklendi.")
+    if variables:
+        print(f"Kullanım: gits {name} " + " ".join(f"<{v}>" for v in variables))
+    else:
+        print(f"Kullanım: gits {name}")
+
+def delete(args):
+    data = load_data()
+    name = args.name
+
+    original_len = len(data["shortcuts"])
+    data["shortcuts"] = [sc for sc in data["shortcuts"] if sc["name"].lower() != name.lower()]
+
+    if len(data["shortcuts"]) == original_len:
+        print(f"'{name}' adlı bir shortcut bulunamadı.")
+    else:
+        save_data(data)
+        print(f"Shortcut '{name}' silindi.")
+
+def build_parser_with_dynamic_subcommands():
+    data = load_data()
+
     parser = argparse.ArgumentParser(prog="gits", description="Benim özel CLI'm")
     subparsers = parser.add_subparsers(title="Komutlar")
 
-    commit_parser = subparsers.add_parser("commit")
-    commit_parser.add_argument("-m", "--message")
-    commit_parser.add_argument("branch", nargs="?", default="")
-    commit_parser.set_defaults(func=commit)
+    commit_parser = subparsers.add_parser("commit", help="Git commit + push")
+    commit_parser.add_argument("-m", "--message", help="Commit mesajı")
+    commit_parser.add_argument("branch", nargs="?", default="", help="Push yapılacak branch (opsiyonel)")
+    commit_parser.set_defaults(func=commit, _type="static")
 
-    repo_parser = subparsers.add_parser("repo")
-    repo_parser.add_argument("url")
-    repo_parser.set_defaults(func=repo)
+    repo_parser = subparsers.add_parser("repo", help="Yeni repo hazırla ve push et")
+    repo_parser.add_argument("url", help="Remote origin URL")
+    repo_parser.set_defaults(func=repo, _type="static")
 
-    for shortcut in data["shortcuts"]:
-        sc_parser = subparsers.add_parser(shortcut["name"])
-        sc_parser.add_argument("--text", help="Shortcut içindeki ${text} yerine geçecek değer", default="")
-        sc_parser.set_defaults(func=run_dynamic_shortcut, func_name=shortcut["name"])
+    create_parser = subparsers.add_parser("create", help="Yeni shortcut oluştur")
+    create_parser.add_argument("name", help="Shortcut ismi")
+    create_parser.add_argument("variables", help="JSON formatında değişken listesi. Örn: '[\"deg1\",\"deg2\"]'")
+    create_parser.add_argument("commands", nargs="+", help="Çalıştırılacak komut(lar).")
+    create_parser.set_defaults(func=create, _type="static")
 
+    delete_parser = subparsers.add_parser("delete", help="Shortcut sil")
+    delete_parser.add_argument("name", help="Silinecek shortcut ismi")
+    delete_parser.set_defaults(func=delete, _type="static")
+
+    for shortcut in data.get("shortcuts", []):
+        sc_parser = subparsers.add_parser(shortcut["name"], help=f"Shortcut: {shortcut['name']}")
+        for var in shortcut.get("args", []):
+            sc_parser.add_argument(var)
+        sc_parser.set_defaults(func=run_dynamic_shortcut, func_name=shortcut["name"], _type="dynamic", _data=data)
+
+    return parser
+
+def main():
+    parser = build_parser_with_dynamic_subcommands()
     args = parser.parse_args()
+
     if hasattr(args, "func"):
-        args.func(args)
+        if getattr(args, "_type", "") == "dynamic":
+            args.func(args, args._data)
+        else:
+            args.func(args)
     else:
         parser.print_help()
 
