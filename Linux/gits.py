@@ -5,7 +5,9 @@ import json
 import os
 
 BASE_DIR = os.path.dirname(__file__)
-JSON_PATH = os.path.join(BASE_DIR, "shortcuts.json")
+CONFIG_DIR = os.path.expanduser("~/.gits")
+os.makedirs(CONFIG_DIR, exist_ok=True)
+JSON_PATH = os.path.join(CONFIG_DIR, "shortcuts.json")
 
 def ensure_json_file():
     if not os.path.exists(JSON_PATH):
