@@ -17,10 +17,10 @@ It also allows users to create and run their own shortcut commands.
 ---
 
 ## 🚀 Kurulum / Installation
-1. Kurulum dosyasını indir Windows / Download the setup file for Windows:
+1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
    ```bash
    https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
 
-2. Kurulum Dosyasını indirin Linux / Dowload the setup file for Linux:
+2. Kurulum Dosyasını indirin Linux / Download the installation file for Linux:
    ```
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
