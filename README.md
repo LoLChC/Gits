@@ -19,4 +19,4 @@ It also allows users to create and run their own shortcut commands.
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir / Download the setup file:
    ```bash
-   https://github.com/LoLChC/Gits/releases/latest/download/Setup.exe
+   https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
