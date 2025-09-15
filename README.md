@@ -9,9 +9,9 @@ It also allows users to create and run their own shortcut commands.
 ---
 
 ## Hazır Kısa Yollar / Ready Shortcuts
-1. '''bash
+1. ```bash
    Gits commit "commit içeriği" "branch ismi"
-   '''bash
+   ```bash
    Gits commit "commit content" "branch name"
 
 ## 🚀 Kurulum / Installation
