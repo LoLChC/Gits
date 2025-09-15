@@ -27,7 +27,7 @@ It also allows users to create and run their own shortcut commands.
 
 <br>
 
-1. ```bash
+2. ```bash
    echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
    ```
    
