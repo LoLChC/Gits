@@ -25,6 +25,10 @@ It also allows users to create and run their own shortcut commands.
    Gits commit "commit content(optionel)" "branch name(optionel)"
    ```
 
+2. ```bash
+   echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
+   ```
+
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
    ```bash
