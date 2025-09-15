@@ -24,7 +24,7 @@ It also allows users to create and run their own shortcut commands.
 2. Kurulum dosyasını indirin Linux / Download the installation file for Linux:
    ```
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
-
+   
 3. Kurulum dosyasını indirin MacOs / Download the installation file for MacOs
    ```
    curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh
