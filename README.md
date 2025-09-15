@@ -10,11 +10,17 @@ It also allows users to create and run their own shortcut commands.
 
 ## Hazır Kısa Yollar / Ready Shortcuts
 1. ```bash
-   Gits commit "commit içeriği" "branch ismi"
+   git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
+   ```
+   
+   Commit işlemlerini kısa bir hale getirmek için aşşağıdaki komutu kullanabilirsiniz:
+
+   ```bash
+   Gits commit "commit içeriği(opsionel)" "branch ismi(opsionel)"
    ```
 
    ```bash
-   Gits commit "commit content" "branch name"
+   Gits commit "commit content(optionel)" "branch name(optionel)"
    ```
 
 ## 🚀 Kurulum / Installation
