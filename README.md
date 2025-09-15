@@ -8,13 +8,11 @@ It also allows users to create and run their own shortcut commands.
 
 ---
 
-## ✨ Özellikler / Features
-- Tek komutla `git add . && git commit && git push` işlemleri / Run `git add . && git commit && git push` in a single command
-- Yeni repo başlatma ve remote ekleme / Initialize a new repo and add remote
-- Kendi kısayollarınızı JSON dosyası üzerinden ekleyip kullanabilme / Add and use custom shortcuts via JSON
-- Kısayol silme desteği / Delete shortcuts
-
----
+## Hazır Kısa Yollar / Ready Shortcuts
+1. '''bash
+   Gits commit "commit içeriği" "branch ismi"
+   '''bash
+   Gits commit "commit content" "branch name"
 
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
