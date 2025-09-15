@@ -22,9 +22,9 @@ It also allows users to create and run their own shortcut commands.
    https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
 
 2. Kurulum dosyasını indirin Linux / Download the installation file for Linux:
-   ```
+   ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
-   
+
 3. Kurulum dosyasını indirin MacOs / Download the installation file for MacOs
-   ```
+   ```bash
    curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh
