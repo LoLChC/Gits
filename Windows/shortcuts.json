@@ -1,13 +1,3 @@
 {
-    "shortcuts": [
-        {
-            "name": "testa",
-            "args": [
-                "a"
-            ],
-            "run": [
-                "echo ne bok yiyorsun {a}"
-            ]
-        }
-    ]
+    "shortcuts": []
 }

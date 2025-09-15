@@ -6,32 +6,50 @@ import os
 import sys
 from typing import Dict, List, Any
 
-# Kurulum dizinini kullan
+# KURULUM DİZİNİ DEĞİŞTİ - /opt/gits olarak ayarlandı
 BASE_DIR = "/opt/gits"
 JSON_PATH = os.path.join(BASE_DIR, "shortcuts.json")
 
 def ensure_json_file():
     """Ensure the shortcuts JSON file exists"""
-    if not os.path.exists(JSON_PATH):
-        with open(JSON_PATH, "w", encoding="utf-8") as f:
+    try:
+        # Önce dizinin var olduğundan emin ol
+        os.makedirs(os.path.dirname(JSON_PATH), exist_ok=True)
+        
+        if not os.path.exists(JSON_PATH):
+            with open(JSON_PATH, "w", encoding="utf-8") as f:
+                json.dump({"shortcuts": []}, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"JSON dosyası oluşturulurken hata: {e}")
+        # Ev dizininde yedek oluştur
+        home_dir = os.path.expanduser("~")
+        fallback_path = os.path.join(home_dir, ".gits_shortcuts.json")
+        print(f"Yedek dosya oluşturuluyor: {fallback_path}")
+        
+        with open(fallback_path, "w", encoding="utf-8") as f:
             json.dump({"shortcuts": []}, f, ensure_ascii=False, indent=4)
+        
+        return fallback_path
+    return JSON_PATH
 
 def load_data() -> Dict[str, Any]:
     """Load shortcuts data from JSON file"""
-    ensure_json_file()
+    json_path = ensure_json_file()
     try:
-        with open(JSON_PATH, "r", encoding="utf-8") as f:
+        with open(json_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, FileNotFoundError):
-        with open(JSON_PATH, "w", encoding="utf-8") as f:
-            data = {"shortcuts": []}
-            json.dump(data, f, ensure_ascii=False, indent=4)
-        return data
+        # Boş bir veri yapısı döndür
+        return {"shortcuts": []}
 
 def save_data(data: Dict[str, Any]):
     """Save shortcuts data to JSON file"""
-    with open(JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    try:
+        json_path = ensure_json_file()
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Veri kaydedilirken hata: {e}")
 
 def run_dynamic_shortcut(args, data):
     """Execute a dynamic shortcut with provided arguments"""
