@@ -43,6 +43,12 @@ It also allows users to create and run their own shortcut commands.
    Gits repo <URL>
    ```
 
+<br>
+
+3. Create Komutu / Create Command:
+
+   # Windows için / For Windows
+
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
    ```bash
