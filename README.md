@@ -12,12 +12,14 @@ It also allows users to create and run their own shortcut commands.
 1. ```bash
    git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
    ```
-   
-   Commit işlemlerini kısa bir hale getirmek için aşşağıdaki komutu kullanabilirsiniz:
+
+   Commit işlemlerini kısa bir hale getirmek için aşağıdaki komutu kullanabilirsiniz:
 
    ```bash
    Gits commit "commit içeriği(opsionel)" "branch ismi(opsionel)"
    ```
+
+   To shorten commit operations, you can use the following command:
 
    ```bash
    Gits commit "commit content(optionel)" "branch name(optionel)"
