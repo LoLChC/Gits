@@ -28,7 +28,7 @@ It also allows users to create and run their own shortcut commands.
 <br>
 
 ```bash
-   echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
+echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
 ```
    
    Yeni bir projeyi bir depoya bağlarken bu uzun komuta ihtiyacınız yok, aşağıdaki komutu kullanabilirsiniz:
