@@ -29,7 +29,13 @@ It also allows users to create and run their own shortcut commands.
    echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
    ```
 
-   Yeni bir projede bir repositorye bağlarken bu uzun komuta gerek yok aşşağıdaki komutu kullanabilirsiniz:
+   Yeni bir projeyi bir depoya bağlarken bu uzun komuta ihtiyacınız yok, aşağıdaki komutu kullanabilirsiniz:
+
+   ```bash
+   Gits repo <URL>
+   ```
+
+   When connecting a new project to a repository, you don't need this long command; you can use the following command:
 
    ```bash
    Gits repo <URL>
