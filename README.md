@@ -14,11 +14,13 @@ It also allows users to create and run their own custom shortcut commands.
 Standart Git commit işlemi / Standard Git commit process:
 ```bash
 git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
+git add . && git commit -m "commit contents" && git push -u origin "branch name"
 ```
 
 Gits ile kısa hâli / Short form with Gits:
 ```bash
 Gits commit "commit içeriği(opsiyonel)" "branch ismi(opsiyonel)"
+Gits commit "commit contents(optionel)" "branch name(optionel)"
 ```
 Açıklama / Description: Bu komut commit işlemlerini kısa bir şekilde yapmanızı sağlar / This command allows you to perform commit operations in a shorter way.
 
@@ -41,22 +43,26 @@ Açıklama / Description: Bu komut yeni bir projeyi hızlı bir şekilde bir rep
 ### 3️⃣ Create Komutu / Create Command
 Kendi kısayol komutlarınızı oluşturabilirsiniz / You can create your own shortcut commands:
 ```bash
-gits create komut_ismi "param1,param2" "işlev / function {param1} {param2}"
+gits create komut_ismi "param1,param2" "işlev {param1} {param2}"
+gits create command_name "param1,param2" "function {param1} {param2}"
 ```
 
 #### Örnek / Example:
 ```bash
-gits create selam_isim "isim" "echo Merhaba / Hello {isim}"
+gits create selam_isim "isim" "echo Merhaba {isim}"
+gits create hi_name "name" "echo Hello {name}"
 ```
 
 Kullanım / Use:
 ```bash
 gits selam_isim "Çağatay Han"
+gits hi_name "Çağatay Han"
 ```
 
 Çıktı / Output:
-```bash
-Merhaba / Hello Çağatay Han
+```text
+Merhaba Çağatay Han
+Merhaba Çağatay Han
 ```
 
 Açıklama / Description: Bu komut, kullanıcı tarafından tanımlanan parametreleri alarak özel bir mesaj veya işlem yapmanızı sağlar / This command allows you to take user-defined parameters to perform a custom message or action.
