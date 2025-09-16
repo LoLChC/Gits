@@ -62,7 +62,7 @@ gits hi_name "Çağatay Han"
 Çıktı / Output:
 ```text
 Merhaba Çağatay Han
-Merhaba Çağatay Han
+Hello Çağatay Han
 ```
 
 Açıklama / Description: Bu komut, kullanıcı tarafından tanımlanan parametreleri alarak özel bir mesaj veya işlem yapmanızı sağlar / This command allows you to take user-defined parameters to perform a custom message or action.
@@ -73,10 +73,6 @@ Açıklama / Description: Bu komut, kullanıcı tarafından tanımlanan parametr
 Oluşturduğunuz kısayol komutlarını silmek için / To delete shortcut commands you created:
 ```bash
 gits delete komut_ismi
-```
-
-Özel bir kısayolu silme / Delete a custom shortcut:
-```bash
 gits delete command_name
 ```
 
@@ -86,11 +82,6 @@ Açıklama / Description: Bu komut, create ile oluşturduğunuz kısayol komutla
 
 ### 5️⃣ List Komutu / List Command
 Tüm mevcut ve otomatik komutları görüntülemek için / To view all available and automatic commands:
-```bash
-gits list
-```
-
-Tüm etkin ve varsayılan komutları görün / See all active and default commands:
 ```bash
 gits list
 ```
