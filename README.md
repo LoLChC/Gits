@@ -41,6 +41,12 @@ It also allows users to create and run their own shortcut commands.
    Gits repo <URL>
    ```
 
+   <br>
+
+   ```bash
+   echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
+   ```
+   
    When connecting a new project to a repository, you don't need this long command; you can use the following command:
 
    ```bash
@@ -75,6 +81,8 @@ It also allows users to create and run their own shortcut commands.
       ```bash
       Merhaba Çağatay Han
       ```
+
+      <br>
       
       You don't need to type too many commands over and over again with shortcuts you create specifically for your needs:
 
@@ -110,6 +118,8 @@ It also allows users to create and run their own shortcut commands.
    
    Bu komut create komutu ile oluşturduğumuz komutları silmek için kullanılır.
 
+   <br>
+
    ```bash
    gits delete command_name
    ```
@@ -119,7 +129,6 @@ It also allows users to create and run their own shortcut commands.
 <hr/>
 
 5. List Komutu / List Command:
-   <br>
 
    ```bash
    gits list
