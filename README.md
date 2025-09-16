@@ -3,6 +3,8 @@
 **Gits**, Git komutlarını kısaltarak daha pratik hale getirmek için geliştirilmiş bir Python aracıdır.  
 Ayrıca kullanıcıların kendi kısayol komutlarını (`shortcut`) tanımlayıp çalıştırabilmesini sağlar.
 
+<br>
+
 **Gits** is a Python tool developed to shorten Git commands and make them easier to use.  
 It also allows users to create and run their own shortcut commands.
 
@@ -46,7 +48,7 @@ It also allows users to create and run their own shortcut commands.
    ```bash
    echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
    ```
-   
+
    When connecting a new project to a repository, you don't need this long command; you can use the following command:
 
    ```bash
