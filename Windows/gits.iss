@@ -36,7 +36,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\lolch\Desktop\gits\Windows
-OutputBaseFilename=Gits_Setup.exe
+OutputBaseFilename=Gits_Setup
 SetupIconFile=C:\Users\lolch\Desktop\gits\Windows\icon.ico
 SolidCompression=yes
 WizardStyle=modern
