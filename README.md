@@ -60,6 +60,17 @@ It also allows users to create and run their own shortcut commands.
       ```bash
       gits create selam_isim "isim" "echo Merhaba {isim}
       ```
+
+      #### Kullanım:
+
+         ```bash
+         gits selam_isim "Çağatay Han"
+         ```
+
+      #### Çıktı
+         ```bash
+         Merhaba Çağatay Han
+         ```
       
       You don't need to type too many commands over and over again with shortcuts you create specifically for your needs:
 
@@ -68,7 +79,7 @@ It also allows users to create and run their own shortcut commands.
       ```
       
       Example:
-      
+
       ```bash
       gits create hi_name "name" "echo Hello {name}
       ```
