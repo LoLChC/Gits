@@ -41,21 +41,24 @@ Açıklama / Description: Bu komut yeni bir projeyi hızlı bir şekilde bir rep
 ### 3️⃣ Create Komutu / Create Command
 Kendi kısayol komutlarınızı oluşturabilirsiniz / You can create your own shortcut commands:
 ```bash
-gits create komut_ismi "param1,param2" "işlev {param1} {param2}"
+gits create komut_ismi "param1,param2" "işlev / function {param1} {param2}"
 ```
 
 #### Örnek / Example:
 ```bash
-gits create selam_isim "isim" "echo Merhaba {isim}"
+gits create selam_isim "isim" "echo Merhaba / Hello {isim}"
 ```
+
 Kullanım / Use:
 ```bash
 gits selam_isim "Çağatay Han"
 ```
+
 Çıktı / Output:
 ```bash
-Merhaba Çağatay Han
+Merhaba / Hello Çağatay Han
 ```
+
 Açıklama / Description: Bu komut, kullanıcı tarafından tanımlanan parametreleri alarak özel bir mesaj veya işlem yapmanızı sağlar / This command allows you to take user-defined parameters to perform a custom message or action.
 
 ---
@@ -65,10 +68,12 @@ Oluşturduğunuz kısayol komutlarını silmek için / To delete shortcut comman
 ```bash
 gits delete komut_ismi
 ```
+
 Özel bir kısayolu silme / Delete a custom shortcut:
 ```bash
 gits delete command_name
 ```
+
 Açıklama / Description: Bu komut, create ile oluşturduğunuz kısayol komutlarını silmenizi sağlar / This command allows you to delete shortcut commands created with create.
 
 ---
@@ -78,10 +83,12 @@ Tüm mevcut ve otomatik komutları görüntülemek için / To view all available
 ```bash
 gits list
 ```
+
 Tüm etkin ve varsayılan komutları görün / See all active and default commands:
 ```bash
 gits list
 ```
+
 Açıklama / Description: Bu komut mevcut tüm kısayol ve otomatik komutları listelemenizi sağlar / This command allows you to list all active and default commands.
 
 ---
