@@ -95,7 +95,7 @@ Açıklama / Description: Bu komut mevcut tüm kısayol ve otomatik komutları l
 ### Windows
 Gits kurulum dosyasını indir / Download Gits installation file:
 ```text
-https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
+https://github.com/LoLChC/Gits/raw/main/Windows/Gits_Setup.exe
 ```
 Açıklama / Description: Windows için Gits'i kurmanızı sağlar / This allows you to install Gits on Windows.
 
