@@ -11,12 +11,12 @@ It also allows users to create and run their own custom shortcut commands.
 ## ⚡ Hazır Kısa Yollar / Ready Shortcuts
 
 ### 1️⃣ Commit Komutu / Commit Command
-Standart Git commit işlemi:
+Standart Git commit işlemi / Standard Git commit process:
 ```bash
 git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
 ```
 
-Gits ile kısa hâli:
+Gits ile kısa hâli / Short form with Gits:
 ```bash
 Gits commit "commit içeriği(opsiyonel)" "branch ismi(opsiyonel)"
 ```
@@ -24,12 +24,12 @@ Gits commit "commit içeriği(opsiyonel)" "branch ismi(opsiyonel)"
 ---
 
 ### 2️⃣ Repo Komutu / Repo Command
-Yeni bir projeyi GitHub’a bağlamak için uzun komut:
+Yeni bir projeyi GitHub’a bağlamak için uzun komut / Long command to connect a new project to GitHub:
 ```bash
 echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
 ```
 
-Gits ile kısa:
+Gits ile kısa / Gits ile kısa:
 ```bash
 Gits repo <URL>
 ```
@@ -37,7 +37,7 @@ Gits repo <URL>
 ---
 
 ### 3️⃣ Create Komutu / Create Command
-Kendi kısayol komutlarınızı oluşturabilirsiniz:
+Kendi kısayol komutlarınızı oluşturabilirsiniz / You can create your own shortcut commands:
 ```bash
 gits create komut_ismi "param1,param2" "işlev {param1} {param2}"
 ```
@@ -60,12 +60,12 @@ Merhaba Çağatay Han
 ---
 
 ### 4️⃣ Delete Komutu / Delete Command
-Oluşturduğunuz kısayol komutlarını silmek için:
+Oluşturduğunuz kısayol komutlarını silmek için / To delete shortcut commands you created:
 ```bash
 gits delete komut_ismi
 ```
 
-Delete a custom shortcut:
+Özel bir kısayolu silme / Delete a custom shortcut:
 ```bash
 gits delete command_name
 ```
@@ -73,12 +73,12 @@ gits delete command_name
 ---
 
 ### 5️⃣ List Komutu / List Command
-Tüm mevcut ve otomatik komutları görüntülemek için:
+Tüm mevcut ve otomatik komutları görüntülemek için / To view all available and automatic commands:
 ```bash
 gits list
 ```
 
-See all active and default commands:
+Tüm etkin ve varsayılan komutları görün / See all active and default commands:
 ```bash
 gits list
 ```
@@ -88,13 +88,13 @@ gits list
 ## 🛠️ Kurulum / Installation
 
 ### Windows
-Gits kurulum dosyasını indir:
+Gits kurulum dosyasını indir / Download Gits installation file:
 ```text
 https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
 ```
 
 ### Linux
-Kurulum için terminale yazın:
+Kurulum için terminale yazın / Type in terminal for installation:
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
 ```
