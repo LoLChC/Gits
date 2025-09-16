@@ -48,9 +48,19 @@ It also allows users to create and run their own shortcut commands.
 3. Create Komutu / Create Command:
 
    ### Windows için: / For Windows:
+
+      İhtiyaçlarınıza özel oluşturmanız kısayollar ile üst üste çok fazla komut yazmanıza gerek yok:
+
       ```bash
-      gits create komut_isimi "[\"paremetre\",\"parametre\"](opsiyonel)" 
+      gits create komut_ismi "parametre1, parametre2" "işlev {parametre1} {parametre2}"
       ```
+      
+      You don't need to type too many commands over and over again with shortcuts you create specifically for your needs:
+
+      ```bash
+      gits create command_name "param1, param2" "task {param1} {param2}"
+      ```
+      
 
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
