@@ -27,7 +27,7 @@ It also allows users to create and run their own shortcut commands.
    Gits commit "commit content(optionel)" "branch name(optionel)"
    ```
 
-<br>
+<hr/>
 
 2. Repo Komutu / Repo Command:
 
@@ -47,7 +47,7 @@ It also allows users to create and run their own shortcut commands.
    Gits repo <URL>
    ```
 
-<br>
+<hr/>
 
 3. Create Komutu / Create Command:
 
@@ -100,7 +100,7 @@ It also allows users to create and run their own shortcut commands.
       Hello Çağatay Han
       ```
 
-<br>
+<hr/>
 
 4. Delete Komutu / Delete Command:
 
@@ -110,15 +110,13 @@ It also allows users to create and run their own shortcut commands.
    
    Bu komut create komutu ile oluşturduğumuz komutları silmek için kullanılır.
 
-<hr />
-
    ```bash
    gits delete command_name
    ```
 
    This command is used to delete the commands we created with the create command.
 
-<br>
+<hr/>
 
 5. List Komutu / List Command:
 
