@@ -20,6 +20,7 @@ Gits ile kısa hâli / Short form with Gits:
 ```bash
 Gits commit "commit içeriği(opsiyonel)" "branch ismi(opsiyonel)"
 ```
+Açıklama / Description: Bu komut commit işlemlerini kısa bir şekilde yapmanızı sağlar / This command allows you to perform commit operations in a shorter way.
 
 ---
 
@@ -29,10 +30,11 @@ Yeni bir projeyi GitHub’a bağlamak için uzun komut / Long command to connect
 echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
 ```
 
-Gits ile kısa / Gits ile kısa:
+Gits ile kısa / Short form with Gits:
 ```bash
 Gits repo <URL>
 ```
+Açıklama / Description: Bu komut yeni bir projeyi hızlı bir şekilde bir repository ile bağlamanızı sağlar / This command allows you to quickly connect a new project to a repository.
 
 ---
 
@@ -46,16 +48,15 @@ gits create komut_ismi "param1,param2" "işlev {param1} {param2}"
 ```bash
 gits create selam_isim "isim" "echo Merhaba {isim}"
 ```
-
 Kullanım / Use:
 ```bash
 gits selam_isim "Çağatay Han"
 ```
-
 Çıktı / Output:
 ```bash
 Merhaba Çağatay Han
 ```
+Açıklama / Description: Bu komut, kullanıcı tarafından tanımlanan parametreleri alarak özel bir mesaj veya işlem yapmanızı sağlar / This command allows you to take user-defined parameters to perform a custom message or action.
 
 ---
 
@@ -64,11 +65,11 @@ Oluşturduğunuz kısayol komutlarını silmek için / To delete shortcut comman
 ```bash
 gits delete komut_ismi
 ```
-
 Özel bir kısayolu silme / Delete a custom shortcut:
 ```bash
 gits delete command_name
 ```
+Açıklama / Description: Bu komut, create ile oluşturduğunuz kısayol komutlarını silmenizi sağlar / This command allows you to delete shortcut commands created with create.
 
 ---
 
@@ -77,11 +78,11 @@ Tüm mevcut ve otomatik komutları görüntülemek için / To view all available
 ```bash
 gits list
 ```
-
 Tüm etkin ve varsayılan komutları görün / See all active and default commands:
 ```bash
 gits list
 ```
+Açıklama / Description: Bu komut mevcut tüm kısayol ve otomatik komutları listelemenizi sağlar / This command allows you to list all active and default commands.
 
 ---
 
@@ -92,17 +93,20 @@ Gits kurulum dosyasını indir / Download Gits installation file:
 ```text
 https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
 ```
+Açıklama / Description: Windows için Gits'i kurmanızı sağlar / This allows you to install Gits on Windows.
 
 ### Linux
 Kurulum için terminale yazın / Type in terminal for installation:
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
 ```
+Açıklama / Description: Linux sistemlere Gits kurulumu için kullanılır / Used for installing Gits on Linux systems.
 
 ### MacOS (Denemedik / Not Tested)
 ```bash
-curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh | bash
+curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/MacOS/install.sh | bash
 ```
+Açıklama / Description: MacOS için Gits kurulumunu sağlar (denenmedi) / Installs Gits on MacOS (not tested).
 
 ---
 
