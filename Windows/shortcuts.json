@@ -1,13 +1,3 @@
 {
-    "shortcuts": [
-        {
-            "name": "selam_isim",
-            "args": [
-                "isim"
-            ],
-            "run": [
-                "echo Merhaba {isim}"
-            ]
-        }
-    ]
+    "shortcuts": []
 }

@@ -9,7 +9,9 @@ It also allows users to create and run their own shortcut commands.
 ---
 
 ## Hazır Kısa Yollar / Ready Shortcuts
-1. ```bash
+1. Commit Komutu / Commit Command
+
+   ```bash
    git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
    ```
 
@@ -27,7 +29,9 @@ It also allows users to create and run their own shortcut commands.
 
 <br>
 
-2. ```bash
+2. Repo Komutu / Repo Command:
+
+   ```bash
    echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
    ```
    
@@ -95,6 +99,36 @@ It also allows users to create and run their own shortcut commands.
       ```bash
       Hello Çağatay Han
       ```
+
+<br>
+
+4. Delete Komutu / Delete Command:
+
+   ```bash
+   gits delete komut_ismi
+   ```
+   
+   Bu komut create komutu ile oluşturduğumuz komutları silmek için kullanılır.
+
+   ```bash
+   gits delete command_name
+   ```
+
+   This command is used to delete the commands we created with the create command.
+
+<br>
+
+5. List Komutu / List Command:
+
+   ```bash
+   gits list
+   ```
+
+   Bu komut ile aktif olarak oluşturduğunuz ve otomatik gelen komutları görebilirsiniz.
+
+   ```bash
+   gits list
+   ```
 
 
 ## 🚀 Kurulum / Installation
