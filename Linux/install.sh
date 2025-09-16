@@ -1,23 +1,26 @@
+#!/bin/bash
+# =========================================
+# Gits Linux Global Kurulum Scripti
+# =========================================
+
 # Mevcut kurulumu kaldır
 sudo rm -f /usr/local/bin/gits
 sudo rm -rf /opt/gits
 
-# Ev dizininizde çalışacak şekilde yeniden kur
-mkdir -p ~/.gits
-echo '{"shortcuts": []}' > ~/.gits/shortcuts.json
-chmod +w ~/.gits/shortcuts.json
+# /opt/gits dizinini oluştur
+sudo mkdir -p /opt/gits
 
-# Python scriptini ev dizinine kopyala
-curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/gits.py > ~/.gits/gits.py
-chmod +x ~/.gits/gits.py
+# Python scriptini indir
+sudo curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/gits.py -o /opt/gits/gits.py
+sudo chmod +x /opt/gits/gits.py
 
-# PATH'e ekle (bash kullanıyorsanız)
-echo 'export PATH="$HOME/.gits:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+# Boş JSON dosyası oluştur
+sudo touch /opt/gits/shortcuts.json
+sudo chmod 666 /opt/gits/shortcuts.json  # Tüm kullanıcılar yazabilir
 
-# Veya zsh kullanıyorsanız
-echo 'export PATH="$HOME/.gits:$PATH"' >> ~/.zshrc
-source ~/.zshrc
+# Global komut oluştur
+echo -e '#!/bin/bash\npython3 /opt/gits/gits.py "$@"' | sudo tee /usr/local/bin/gits > /dev/null
+sudo chmod +x /usr/local/bin/gits
 
-# Test et
-~/.gits/gits.py list
+echo "Kurulum tamamlandı! Artık terminalden 'gits' komutunu kullanabilirsiniz."
+echo "Örnek kullanım: gits list"
