@@ -110,6 +110,8 @@ It also allows users to create and run their own shortcut commands.
    
    Bu komut create komutu ile oluşturduğumuz komutları silmek için kullanılır.
 
+<hr />
+
    ```bash
    gits delete command_name
    ```
