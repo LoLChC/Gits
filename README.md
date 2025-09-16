@@ -90,7 +90,7 @@ It also allows users to create and run their own shortcut commands.
       gits hi_name "Çağatay Han"
       ```
 
-      #### Output
+      #### Output:
 
       ```bash
       Hello Çağatay Han
