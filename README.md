@@ -126,9 +126,13 @@ It also allows users to create and run their own shortcut commands.
 
    Bu komut ile aktif olarak oluşturduğunuz ve otomatik gelen komutları görebilirsiniz.
 
+   <br>
+
    ```bash
    gits list
    ```
+
+   With this command, you can see the commands you have actively created and the automatic commands.
 
 
 ## 🚀 Kurulum / Installation
