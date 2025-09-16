@@ -119,6 +119,7 @@ It also allows users to create and run their own shortcut commands.
 <hr/>
 
 5. List Komutu / List Command:
+   <br>
 
    ```bash
    gits list
