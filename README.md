@@ -23,6 +23,8 @@ It also allows users to create and run their own shortcut commands.
    Gits commit "commit içeriği(opsionel)" "branch ismi(opsionel)"
    ```
 
+   <br>
+
    To shorten commit operations, you can use the following command:
 
    ```bash
