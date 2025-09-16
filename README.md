@@ -1,163 +1,109 @@
-# Gits
+# 🚀 Gits
 
-**Gits**, Git komutlarını kısaltarak daha pratik hale getirmek için geliştirilmiş bir Python aracıdır.  
-Ayrıca kullanıcıların kendi kısayol komutlarını (`shortcut`) tanımlayıp çalıştırabilmesini sağlar.
+**Gits**, Git komutlarını kısaltmak ve kullanımını kolaylaştırmak için geliştirilmiş bir Python aracıdır.  
+Ayrıca kullanıcıların kendi kısayol komutlarını (`shortcut`) tanımlayıp çalıştırmasına imkan tanır.
 
-<br>
-
-**Gits** is a Python tool developed to shorten Git commands and make them easier to use.  
-It also allows users to create and run their own shortcut commands.
+**Gits** is a Python tool designed to shorten Git commands and make them easier to use.  
+It also allows users to create and run their own custom shortcut commands.
 
 ---
 
-## Hazır Kısa Yollar / Ready Shortcuts
-1. Commit Komutu / Commit Command
+## ⚡ Hazır Kısa Yollar / Ready Shortcuts
 
-   ```bash
-   git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
-   ```
+### 1️⃣ Commit Komutu / Commit Command
+Standart Git commit işlemi:
+```bash
+git add . && git commit -m "commit içeriği" && git push -u origin "branch ismi"
+```
 
-   Commit işlemlerini kısa bir hale getirmek için aşağıdaki komutu kullanabilirsiniz:
+Gits ile kısa hâli:
+```bash
+Gits commit "commit içeriği(opsiyonel)" "branch ismi(opsiyonel)"
+```
 
-   ```bash
-   Gits commit "commit içeriği(opsionel)" "branch ismi(opsionel)"
-   ```
+---
 
-   <br>
+### 2️⃣ Repo Komutu / Repo Command
+Yeni bir projeyi GitHub’a bağlamak için uzun komut:
+```bash
+echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
+```
 
-   To shorten commit operations, you can use the following command:
+Gits ile kısa:
+```bash
+Gits repo <URL>
+```
 
-   ```bash
-   Gits commit "commit content(optionel)" "branch name(optionel)"
-   ```
+---
 
-<hr/>
+### 3️⃣ Create Komutu / Create Command
+Kendi kısayol komutlarınızı oluşturabilirsiniz:
+```bash
+gits create komut_ismi "param1,param2" "işlev {param1} {param2}"
+```
 
-2. Repo Komutu / Repo Command:
+#### Örnek / Example:
+```bash
+gits create selam_isim "isim" "echo Merhaba {isim}"
+```
 
-   ```bash
-   echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
-   ```
-   
-   Yeni bir projeyi bir depoya bağlarken bu uzun komuta ihtiyacınız yok, aşağıdaki komutu kullanabilirsiniz:
+Kullanım / Use:
+```bash
+gits selam_isim "Çağatay Han"
+```
 
-   ```bash
-   Gits repo <URL>
-   ```
+Çıktı / Output:
+```bash
+Merhaba Çağatay Han
+```
 
-   <br>
+---
 
-   ```bash
-   echo "# New Repository" > README.md && git init && git add . && git commit -m "first commit" && git branch -M main && git remote add origin <URL> && git push -u origin main
-   ```
+### 4️⃣ Delete Komutu / Delete Command
+Oluşturduğunuz kısayol komutlarını silmek için:
+```bash
+gits delete komut_ismi
+```
 
-   When connecting a new project to a repository, you don't need this long command; you can use the following command:
+Delete a custom shortcut:
+```bash
+gits delete command_name
+```
 
-   ```bash
-   Gits repo <URL>
-   ```
+---
 
-<hr/>
+### 5️⃣ List Komutu / List Command
+Tüm mevcut ve otomatik komutları görüntülemek için:
+```bash
+gits list
+```
 
-3. Create Komutu / Create Command:
+See all active and default commands:
+```bash
+gits list
+```
 
-   ### Windows ve Linux için: / For Windows and Linux:
+---
 
-      İhtiyaçlarınıza özel oluşturmanız kısayollar ile üst üste çok fazla komut yazmanıza gerek yok:
+## 🛠️ Kurulum / Installation
 
-      ```bash
-      gits create komut_ismi "parametre1, parametre2" "işlev {parametre1} {parametre2}"
-      ```
+### Windows
+Gits kurulum dosyasını indir:
+```text
+https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
+```
 
-      #### Örnek:
+### Linux
+Kurulum için terminale yazın:
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
+```
 
-      ```bash
-      gits create selam_isim "isim" "echo Merhaba {isim}
-      ```
+### MacOS (Denemedik / Not Tested)
+```bash
+curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh | bash
+```
 
-      #### Kullanım:
+---
 
-      ```bash
-      gits selam_isim "Çağatay Han"
-      ```
-
-      #### Çıktı
-      ```bash
-      Merhaba Çağatay Han
-      ```
-
-      <br>
-      
-      You don't need to type too many commands over and over again with shortcuts you create specifically for your needs:
-
-      ```bash
-      gits create command_name "param1, param2" "task {param1} {param2}"
-      ```
-      
-      #### Example:
-
-      ```bash
-      gits create hi_name "name" "echo Hello {name}"
-      ```
-
-      #### Use:
-
-      ```bash
-      gits hi_name "Çağatay Han"
-      ```
-
-      #### Output:
-
-      ```bash
-      Hello Çağatay Han
-      ```
-
-<hr/>
-
-4. Delete Komutu / Delete Command:
-
-   ```bash
-   gits delete komut_ismi
-   ```
-   
-   Bu komut create komutu ile oluşturduğumuz komutları silmek için kullanılır.
-
-   <br>
-
-   ```bash
-   gits delete command_name
-   ```
-
-   This command is used to delete the commands we created with the create command.
-
-<hr/>
-
-5. List Komutu / List Command:
-
-   ```bash
-   gits list
-   ```
-
-   Bu komut ile aktif olarak oluşturduğunuz ve otomatik gelen komutları görebilirsiniz.
-
-   <br>
-
-   ```bash
-   gits list
-   ```
-
-   With this command, you can see the commands you have actively created and the automatic commands.
-
-
-## 🚀 Kurulum / Installation
-1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
-   ```bash
-   https://github.com/LoLChC/Gits/raw/main/Setup/Gits_Setup.exe
-
-2. Kurulum dosyasını indirin Linux / Download the installation file for Linux:
-   ```bash
-   bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
-
-3. Kurulum dosyasını indirin MacOs / Download the installation file for MacOs (not tried)
-   ```bash
-   curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh
+Made with ❤️ by **LoLChC**
