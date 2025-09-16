@@ -63,9 +63,9 @@ It also allows users to create and run their own shortcut commands.
 
       #### Kullanım:
 
-         ```bash
-         gits selam_isim "Çağatay Han"
-         ```
+      ```bash
+      gits selam_isim "Çağatay Han"
+      ```
 
       #### Çıktı
          ```bash
