@@ -55,7 +55,7 @@ It also allows users to create and run their own shortcut commands.
       gits create komut_ismi "parametre1, parametre2" "işlev {parametre1} {parametre2}"
       ```
 
-      Örnek:
+      #### Örnek:
 
       ```bash
       gits create selam_isim "isim" "echo Merhaba {isim}
@@ -68,9 +68,9 @@ It also allows users to create and run their own shortcut commands.
       ```
 
       #### Çıktı
-         ```bash
-         Merhaba Çağatay Han
-         ```
+      ```bash
+      Merhaba Çağatay Han
+      ```
       
       You don't need to type too many commands over and over again with shortcuts you create specifically for your needs:
 
@@ -78,11 +78,24 @@ It also allows users to create and run their own shortcut commands.
       gits create command_name "param1, param2" "task {param1} {param2}"
       ```
       
-      Example:
+      #### Example:
 
       ```bash
-      gits create hi_name "name" "echo Hello {name}
+      gits create hi_name "name" "echo Hello {name}"
       ```
+
+      #### Use:
+
+      ```bash
+      gits hi_name "Çağatay Han"
+      ```
+
+      #### Output
+
+      ```bash
+      Hello Çağatay Han
+      ```
+
 
 ## 🚀 Kurulum / Installation
 1. Kurulum dosyasını indir Windows / Download the installation file for Windows:
