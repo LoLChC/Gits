@@ -47,7 +47,7 @@ It also allows users to create and run their own shortcut commands.
 
 3. Create Komutu / Create Command:
 
-   ### Windows için: / For Windows:
+   ### Windows ve Linux için: / For Windows and Linux:
 
       İhtiyaçlarınıza özel oluşturmanız kısayollar ile üst üste çok fazla komut yazmanıza gerek yok:
 
@@ -106,6 +106,6 @@ It also allows users to create and run their own shortcut commands.
    ```bash
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/LoLChC/Gits/main/Linux/install.sh)"
 
-3. Kurulum dosyasını indirin MacOs / Download the installation file for MacOs
+3. Kurulum dosyasını indirin MacOs / Download the installation file for MacOs (not tried)
    ```bash
    curl -s https://raw.githubusercontent.com/LoLChC/Gits/main/install.sh
