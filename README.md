@@ -114,4 +114,4 @@ Açıklama / Description: MacOS için Gits kurulumunu sağlar (denenmedi) / Inst
 
 ---
 
-Made with ❤️ by **LoLChC**
+By **LoLChC**
